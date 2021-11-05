@@ -1,0 +1,35 @@
+<ion-content> 
+  <div id="body">
+    <form name="form" id="form">  
+    <img id="imagen" src="assets/img/top.png" alt="">
+    <div><h1 id="titulo">Hola</h1></div>
+    <div><h3 id="subtitulo">Inicia Sesión con tu cuenta</h3></div>
+    <div>
+      <ion-item lines="none" id="user" color="ligth">
+        <ion-label><ion-icon id="ion-icon" name="person-outline"></ion-icon></ion-label>
+        <ion-input [(ngModel)]="miModelo.email" name="email" type="text" #correo="ngModel" required placeholder="correoejemplo@ejemplo.com" email></ion-input>
+      </ion-item>
+      <ion-item lines="none" id="pass" color="ligth">
+        <ion-label><ion-icon id="ion-icon" name="key-outline"></ion-icon></ion-label>
+        <ion-input type="password" minlength="8" #password="ngModel" [(ngModel)]="miModelo.password" [type]="passwordTypeInput" name="password" required placeholder="•••••••••••••" id="password"></ion-input>
+        <button item-end  class="btn_eye_icon"  (click)="togglePasswordMode()">
+          <ion-icon  [name]="(passwordTypeInput === 'text')?'eye-off':'eye'"></ion-icon>
+        </button>
+      </ion-item>
+    </div>
+    <div><a href="" id="recpass" routerLink="/rec-pass">¿Olvidaste tu contraseña?</a></div>
+    <div><ion-button size="large" type="submit" (click)="onLogin(correo, password)" id="btniniciar" shape="round">
+      Iniciar Sesion
+    </ion-button></div>
+    <div id="reg">
+      <p>¿No tienes una cuenta? <a id="link" href="" routerLink="/register">Regístrate</a></p>
+    </div>
+  </form>
+</div>
+</ion-content>
+<div id="ion-footer" class="form-error">
+  <p *ngIf="correo.errors?.required && (correo.dirty || correo.touched)">El Campo Correo es Obligatorio.</p>
+  <p *ngIf="correo.errors?.email && correo.touched">Correo Invalido</p>
+  <p *ngIf="password.errors?.required && password.touched">El Campo Contraseña es Obligatorio</p>
+  <p *ngIf="password.errors && password.touched">La Contraseña Debe Tener 8 Caracteres</p>
+</div>

@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    </ion-buttons>
+    <ion-title id="titulo">CALOSY</ion-title>
+    <ion-title id="subtitulo">Control de Ganado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of resList" color="primary">
+    <span *ngIf="!item.isEdit; else elseBlock">
+      <ion-card-header>
+        <ion-card-title>Nombre del Animal: {{item.Nombre}}</ion-card-title>
+        <ion-card-title>Color de Animal: {{item.Color}}</ion-card-title>
+        <ion-card-title>Raza del Animal: {{item.Raza}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+  
+        <ion-button shape="round" color="secondary" size="small" (click)="EditRecord(item)">
+          <ion-icon size="small" slot="icon-only" name="create"></ion-icon>
+  
+        </ion-button>
+        <ion-button shape="round" color="danger" size="small" (click)="RemoveRecord(item.id)">
+          <ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+  
+        </ion-button>
+      </ion-card-content>
+    </span>
+    <ng-template #elseBlock>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                Editar
+              </ion-col>
+              <ion-col>
+                <ion-button fill="solid" color="medium" size="small" (click)="item.isEdit = false">
+                  Cancelar
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="solid" color="success" size="small" (click)="UpdateRecord(item)">
+                  Actualizar
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label><strong>Nombre</strong></ion-label>
+          <ion-input type="text" [(ngModel)]="item.EditNombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label><strong>Color</strong></ion-label>
+          <ion-input type="text" [(ngModel)]="item.EditColor"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label><strong>Raza</strong></ion-label>
+          <ion-input type="text" [(ngModel)]="item.EditRaza"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ng-template>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="settings"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button (click)="register()"><ion-icon name="add-outline"></ion-icon></ion-fab-button>
+      <ion-fab-button (click)="back()"><ion-icon name="arrow-undo-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-content> 
+  <div id="body">
+    <div id="return"><a routerLink="/login"><ion-icon name="arrow-back-outline"></ion-icon></a></div>
+      <img id="imagen" src="assets/img/top.png" alt="">
+     <div><h1 id="titulo">Tranquilo</h1></div>
+     <div><h3 id="subtitulo">¿Olvidaste tu contraseña?</h3></div>
+     <p id="txt">Ingresa tu correo electronico, y
+      te enviaremos un correo de recuperacion.</p>
+      <p id="pe">-Si no encuentras tu correo en tu bandeja principal busca en la bandeja de SPAM-</p>
+     <div>
+      <ion-item lines="none" id="pass" color="ligth">
+        <ion-label></ion-label>
+        <ion-input type="text" #email placeholder="ejemplo@ejemplo.com"></ion-input>
+      </ion-item>
+     </div>
+     <div><ion-button size="large" (click)="onResetPassword(email)" id="btniniciar" shape="round">
+       Recuperar Contraseña
+     </ion-button></div>
+</div>
+</ion-content>

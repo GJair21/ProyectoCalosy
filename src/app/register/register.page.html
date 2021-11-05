@@ -1,0 +1,28 @@
+<ion-content> 
+  <div id="body">
+    <form name="formregister" id="formregister"> 
+      <img id="imagen" src="assets/img/top.png" alt="">
+     <div><h1 id="titulo">Unete</h1></div>
+     <div><h3 id="subtitulo">Registra tu cuenta nueva</h3></div>
+     <div>
+      <ion-item lines="none" id="user" color="ligth">
+        <ion-label><ion-icon id="ion-icon" name="person-outline"></ion-icon></ion-label>
+        <ion-input clear-on-edit="true" type="text" #email required placeholder="correoejemplo@ejemplo.com" email></ion-input>
+      </ion-item>
+      <ion-item lines="none" id="pass" color="ligth">
+        <ion-label><ion-icon id="ion-icon" name="key-outline"></ion-icon></ion-label>
+        <ion-input clearOnEdit="false" [type]="passwordTypeInput" #password required placeholder="•••••••••••••" id="password"></ion-input>
+        <button item-end  class="btn_eye_icon"  (click)="togglePasswordMode()">
+          <ion-icon [name]="(passwordTypeInput === 'text')?'eye-off':'eye'"></ion-icon>
+      </button>
+      </ion-item>
+     </div>
+     <div><ion-button size="large" type="submit" (click)="onRegister(email, password)" id="btniniciar" shape="round">
+       Registrarme
+     </ion-button></div>
+     <div id="reg">
+       <p>¿Ya tienes una cuenta? <a id="link" href="" routerLink="/login">Inicia Sesion</a></p>
+     </div>
+    </form>
+</div>
+</ion-content>

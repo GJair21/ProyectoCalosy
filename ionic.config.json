@@ -1,0 +1,10 @@
+{
+  "name": "Colasy_App",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}

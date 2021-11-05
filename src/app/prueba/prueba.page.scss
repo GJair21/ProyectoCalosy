@@ -1,0 +1,49 @@
+ion-toolbar{
+    --min-height: 70px;
+}
+#titulo{
+    font-size: 35px;
+}
+#subtitulo{
+    font-size: 20px;
+}
+ion-icon{
+    font-size: 35px;
+}
+#titulolista{
+    text-align: center;
+    font-size: 30px;
+}
+#nombre{
+    font-size: 25px;
+}
+#estado{
+    font-size: 20px;
+}
+#peso{
+    font-size: 18px;
+}
+#color{
+    font-size: 18px;
+}
+#raza{
+    font-size: 18px;
+}
+ion-list{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+ion-item-sliding{
+    border-radius: 30px;
+}
+#background{
+    --background: rgb(199, 199, 199);
+}
+
+#input{
+    background: rgb(199, 199, 199);
+}
+.sub{
+    width: 50px;
+    height: 50px;
+}
